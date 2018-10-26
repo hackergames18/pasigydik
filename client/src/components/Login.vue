@@ -33,18 +33,17 @@
 
 <script>
 import firebase from 'firebase';
+import { mapGetters } from 'vuex'
 
   export default {
     data() {
       return {
-        email: '',
-        password: ''
+        email: 'zigmas@slusnys.com  ',
+        password: 'zigmas'
       }
     },
     computed: {
-      currentUser() {
-        return firebase.auth().currentUser
-      }
+      ...mapGetters({currentUser: 'auth/getUser'})
     },
     methods: {
       handleSubmit: function () {
@@ -52,18 +51,19 @@ import firebase from 'firebase';
           console.log('you cant enter empty fields')
           return
         }
-        firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          console.log(errorCode)
-          var errorMessage = error.message;
-          console.log(errorMessage)
-          // ...
-        });
-        console.log(this.currentUser.email)
-        if (this.currentUser) {
-          this.$route.push({ path: 'home' })
-        }
+        this.$store.dispatch('auth/login', {email: this.email, password: this.password})
+        // firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+        //   // Handle Errors here.
+        //   var errorCode = error.code;
+        //   console.log(errorCode)
+        //   var errorMessage = error.message;
+        //   console.log(errorMessage)
+        //   // ...
+        // });
+        // console.log(this.currentUser.email)
+        // if (this.currentUser) {
+        //   this.$route.push({ path: 'home' })
+        // }
       }
     }
   }

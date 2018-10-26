@@ -6,7 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import router from './router'
 import VueRouter from 'vue-router'
 import * as firebase from 'firebase';
-import {firestore} from 'firebase'
+import {firestore} from 'firebase' 
+
+import store from './store'
 
 const app = firebase.initializeApp({
   apiKey: "AIzaSyCMEhgWDfoA-5Z88c9vyJJPiIF4jGQ9kbc",
@@ -29,5 +31,6 @@ Vue.use(VueRouter)
 new Vue({
   el: '#app',
   router,
+  store,
   render: h => h(App)
 })
