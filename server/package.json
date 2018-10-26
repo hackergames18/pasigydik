@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "budo server.js:bundle.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,8 @@
     "express": "^4.16.4",
     "mongoose": "^5.3.7",
     "simple-peer": "^9.1.2"
+  },
+  "devDependencies": {
+    "budo": "^11.5.0"
   }
 }
