@@ -1,36 +1,71 @@
 <template>
   <div>
-    <form class="form-signin">
+    <form v-if="!currentUser" class="form-signin" @submit.prevent="handleSubmit">
       <div class="text-center mb-4">
         <!-- <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
-        <h1 class="h3 mb-3 font-weight-normal">Floating labels</h1>
-        <p>Build form controls with floating labels via the <code>:placeholder-shown</code> pseudo-element. <a href="https://caniuse.com/#feat=css-placeholder-shown">Works in latest Chrome, Safari, and Firefox.</a></p>
+        <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
+        <p>Our doctors are here to help.</p>
       </div>
 
       <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" v-model="email" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputEmail">Email address</label>
       </div>
 
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" v-model="password" class="form-control" placeholder="Password" required>
         <label for="inputPassword">Password</label>
       </div>
 
-      <div class="checkbox mb-3">
+      <!-- <div class="checkbox mb-3">
         <label>
           <input type="checkbox" value="remember-me"> Remember me
         </label>
-      </div>
+      </div> -->
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
+    <div v-else>
+      You're already signed in {{ currectUser.email }}!
+    </div>
   </div>
 </template>
 
 <script>
-  export default {
+import firebase from 'firebase';
 
+  export default {
+    data() {
+      return {
+        email: '',
+        password: ''
+      }
+    },
+    computed: {
+      currentUser() {
+        return firebase.auth().currentUser
+      }
+    },
+    methods: {
+      handleSubmit: function () {
+        if (this.email === '' || this.password === '') {
+          console.log('you cant enter empty fields')
+          return
+        }
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          console.log(errorCode)
+          var errorMessage = error.message;
+          console.log(errorMessage)
+          // ...
+        });
+        console.log(this.currentUser.email)
+        if (this.currentUser) {
+          this.$route.push({ path: 'home' })
+        }
+      }
+    }
   }
 </script>
 

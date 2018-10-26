@@ -3,6 +3,8 @@
     <form class="form-signin" @submit.prevent="handleSubmit">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+        <p>You're one step from getting in touch with a doctor!</p>
+
       </div>
 
       <div class="form-label-group">
@@ -34,15 +36,11 @@ import 'firebase/firestore'
     },
     methods: {
       handleSubmit(email, password) {
-        console.log(this.email, this.password)
-        console.log('register clicked')
         if (this.email === '' || this.password === '') {
           console.log('you cant enter empty fields')
           return
         }
-        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((res) => {
-          console.log(res)
-        }).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
           var errorCode = error.code;
           console.log(errorCode)
           var errorMessage = error.message;

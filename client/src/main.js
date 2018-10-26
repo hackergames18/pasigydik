@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 // import store from './store/index'
+import 'bootstrap/dist/css/bootstrap.css'
+
 import router from './router'
 import VueRouter from 'vue-router'
 import * as firebase from 'firebase';

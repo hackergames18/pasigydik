@@ -39,7 +39,7 @@
           <h1 class="jumbotron-heading">Consult your doctor without leaving your home.</h1>
           <p class="lead text-muted">Chat through webcam on your phone or your computer.</p>
           <p>
-            <router-link class="btn btn-primary my-2" to="/login">Login</router-link>
+            <router-link class="btn btn-primary my-2" to="/login">Sign in</router-link>
             <router-link class="btn btn-secondary my-2" to="/register">Register</router-link>
           </p>
         </div>
