@@ -47,7 +47,7 @@
 
       <div class="album py-5 bg-light">
         <div class="container">
-
+          <router-view></router-view>
         </div>
       </div>
 
