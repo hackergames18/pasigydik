@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 import * as firebase from 'firebase';
 import {firestore} from 'firebase'
 
-const firebaseApp = firebase.initializeApp({
+const app = firebase.initializeApp({
   apiKey: "AIzaSyCMEhgWDfoA-5Z88c9vyJJPiIF4jGQ9kbc",
   authDomain: "livedoctor-9a4ac.firebaseapp.com",
   databaseURL: "https://livedoctor-9a4ac.firebaseio.com",
@@ -15,12 +15,12 @@ const firebaseApp = firebase.initializeApp({
   messagingSenderId: "100108556171"
 })
 
-firestore().collection("users").get().then(function(querySnapshot) {
-  querySnapshot.forEach(function(doc) {
-      // doc.data() is never undefined for query doc snapshots
-      console.log(doc.id, " => ", doc.data());
-  });
-});
+// firestore().collection("users").get().then(function(querySnapshot) {
+//   querySnapshot.forEach(function(doc) {
+//       // doc.data() is never undefined for query doc snapshots
+//       console.log(doc.id, " => ", doc.data());
+//   });
+// });
 
 Vue.use(VueRouter)
 

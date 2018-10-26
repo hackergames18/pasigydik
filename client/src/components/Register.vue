@@ -1,31 +1,53 @@
 <template>
   <div>
-    <form class="form-signin">
+    <form class="form-signin" @submit.prevent="handleSubmit">
       <div class="text-center mb-4">
         <h1 class="h3 mb-3 font-weight-normal">Register</h1>
       </div>
 
       <div class="form-label-group">
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputEmail" :value="email">Email addressssssssssss</label>
+        <input type="email" id="inputEmail" v-model="email" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputEmail">Email address</label>
       </div>
 
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <label for="inputPassword" :value="password">Password</label>
+        <input type="password" id="inputPassword" v-model="password" class="form-control" placeholder="Password" required>
+        <label for="inputPassword">Password</label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+      <button class="btn btn-lg btn-primary btn-block">Register</button>
     </form>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+
+// const firestoreApp = firebase.firestore()
   export default {
     data() {
       return {
         email: '',
         password: ''
+      }
+    },
+    methods: {
+      handleSubmit(email, password) {
+        console.log(this.email, this.password)
+        console.log('register clicked')
+        if (this.email === '' || this.password === '') {
+          console.log('you cant enter empty fields')
+          return
+        }
+        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then((res) => {
+          console.log(res)
+        }).catch(function(error) {
+          var errorCode = error.code;
+          console.log(errorCode)
+          var errorMessage = error.message;
+          console.log(errorMessage)
+        });
       }
     },
   }
