@@ -6,10 +6,10 @@
     <p>
       Find a doctor and register for your appointment
     </p>
-    <input type="text" v-model="search" placeholder="What type of specialist are you looking for?">
+    <input type="text" class="spec-search" v-model="search" placeholder="I'm looking for...">
     <div class="specialist-list">
       <div v-for="category in filteredCategories" :key="category.id">
-        <a class="btn btn-primary doctor-bubble" @click="selectCategory(category.id)">
+        <a class="btn btn-primary doctor-bubble text-light mt-1" @click="selectCategory(category.id)">
           {{ category.name }}
         </a>
       </div>
@@ -66,5 +66,8 @@ import Webrtc from './Webrtc'
 }
 .apointments-list {
   padding-top: 100px;
+}
+.spec-search {
+  padding: 1em 2em;
 }
 </style>
