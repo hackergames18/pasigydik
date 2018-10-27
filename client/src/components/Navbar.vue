@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
-      <span class="text-primary">cure</span>lla.com
+      <router-link class="text-dark" to="/"><span class="text-primary">cure</span>lla.com</router-link>
+
+
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,28 +25,54 @@
             <a class="nav-link" href="#">FAQ</a>
           </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Reviews</a>
-          </li>
+          <a class="nav-link" href="#">Reviews</a>
+        </li>
         <!-- TODO - Dividerio reikia (|) -->
-        <li class="nav-item">
-          <router-link class="nav-link" to="login">Login</router-link>
+        <div v-if="!user">
+          <li class="nav-item">
+            <router-link class="nav-link" to="login">Login</router-link>
+            </li>
+          <li class="nav-item">
+            <router-link class="nav-link signup-link" to="register">Sign up</router-link>
           </li>
-        <li class="nav-item">
-          <router-link class="nav-link signup-link" to="register">Sign up</router-link>
-            <!-- <a class="nav-link" href="#">Sign up</a> -->
+        </div>
+        <div v-else>
+          <li class="nav-item">
+            <a class="nav-link action-link" href="#">My appointments</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" @click="logout" href="#">Logout</a>
+          </li>
+        </div>
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
-export default {};
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters({user: 'getUser'})
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/')
+    }
+  },
+};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$default-color: #2191fb;
+
 .navbar {
   background-color: #f7f7f7;
+}
+.action-link {
+  color: $default-color !important;
 }
 .navbar-brand {
   font-size: 2em;

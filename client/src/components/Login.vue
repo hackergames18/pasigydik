@@ -22,8 +22,8 @@
           <input type="checkbox" value="remember-me"> Remember me
         </label>
       </div> -->
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
+      <button class="btn btn-lg btn-primary btn-block btn-action" type="submit">Sign in</button>
+      <p class="mt-5 mb-3 text-muted text-center">&copy; 2018</p>
     </form>
   </div>
 </template>
@@ -75,6 +75,9 @@ import { mapGetters } from 'vuex'
 </script>
 
 <style scoped>
+  .btn-action {
+    background-color: #2191fb;
+  }
   .form-signin {
   width: 100%;
   max-width: 420px;

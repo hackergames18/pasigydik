@@ -12,7 +12,7 @@
                 </button>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 hide-image-overflow">
               <img src="../assets/landing.png" alt="" class="landing-img">
             </div>
 
@@ -83,6 +83,9 @@ export default {
   margin-bottom: 20em;
 }
 
+.hide-image-overflow {
+  overflow:hidden
+}
 section#first {
   background-color: #f7f7f7;
   padding-bottom: 5em;
@@ -101,9 +104,14 @@ section#first {
   }
 
   .align-left {
-    padding-left: 200px;
+    padding-left: 150px;
+    padding-right: 150px;
     margin-top: 40%;
     text-align: left;
+    h1 {
+      line-height: 60px;
+      font-weight: 900;
+    }
   }
 
   #landing-signup {
@@ -111,6 +119,7 @@ section#first {
     padding: 0.2em 2em;
     margin-top: 2em;
     border-radius: 25px;
+    font-weight: 600;
     background-color: #2191fb;
     color: #fff;
   }
