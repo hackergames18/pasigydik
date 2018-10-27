@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import router from './router'
 import VueRouter from 'vue-router'
 import * as firebase from 'firebase';
-import {firestore} from 'firebase' 
 
 import store from './store'
 
@@ -25,6 +24,8 @@ const app = firebase.initializeApp({
 //       console.log(doc.id, " => ", doc.data());
 //   });
 // });
+store.dispatch('initializeCategories')
+store.dispatch('initilaizeMockUsers')
 
 Vue.use(VueRouter)
 

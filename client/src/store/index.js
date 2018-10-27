@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import createLogger from 'vuex/dist/logger';
 
 import auth from './auth';
-// import core from './core';
+import core from './core';
 // import requests from './requests';
 // import password from './password';
 // import signup from './signup';
@@ -16,7 +16,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   modules: {
-    // core,
+    core,
     auth,
     // requests,
     // // password,

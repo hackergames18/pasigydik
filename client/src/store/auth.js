@@ -1,72 +1,74 @@
 import {auth} from 'firebase'
-
+import mockUsers from '../mock/users'
 const initialState = {
   authenticating: false,
   error: false,
-  user: null
+  user: null,
+  users: {}
 };
 
 const getters = {
   isAuthenticated: state => !!state.user,
-  getUser: state => state.user
+  getUser: state => state.user,
+  getUsers: state => state.users
 };
 
 const actions = {
-  async login({ commit }, { email, password }) {
-    try {
-      await auth().signInWithEmailAndPassword(email, password)
-      const user = await auth().currentUser
-      commit('setUser', user)
-    } catch (error) {
-      console.log('error happened while loggin in')
-      console.log(error)
-      throw error
-    }
+  initilaizeMockUsers({commit}) {
+    commit('setMockUsers', mockUsers)
   },
-  async register({ commit }, {email, password, type }) {
-    try {
-      await auth().createUserWithEmailAndPassword(email, password)
-      commit('setUser', auth().currentUser)
-    } catch (error) {
-      console.log('error registering')
-      console.log(error)
-      throw error
-    }
+  async login({ commit, state }, { email, password }) {
+    console.log(getters)
+    console.log(await state.users)
+    return
+    console.log(users)
+    let foundUser = null
+    users.forEach(user => {
+      if (user.email === email && user.password === password) {
+        foundUser = user
+      }
+    });
+    commit('setUser', foundUser)
+    // console.log(email, password)
+    // // auth().signInWithEmailAndPassword(email, password).catch()
+    // await auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+    //   // Handle Errors here.
+    //   var errorCode = error.code;
+    //   console.log(errorCode)
+    //   var errorMessage = error.message;
+    //   console.log(errorMessage)
+    //   // ...
+    //   throw error
+    // });
+    // commit('setUser', auth().currentUser)
+    // try {
+    //   await auth().signInWithEmailAndPassword(email, password)
+    //   commit('setUser', 'success')
+    // } catch (error) {
+    //   console.log('error happened while loggin in')
+    //   console.log(error)
+    //   throw error
+    // }
+  },
+  register({ commit }, {email, password, type }) {
+    commit('addUser')
   },
   async logout({ commit }) {
-    try {
-      await auth().signOut()
-      commit('setUser', null)
-    } catch (error) {
-
-    }
+   commit('setUser', null)
   },
   logout({ commit }) {
     return auth.logout()
       .then(() => commit(LOGOUT))
       .finally(() => commit(REMOVE_TOKEN));
   },
-  initialize({ commit }) {
-    const token = localStorage.getItem(TOKEN_STORAGE_KEY);
-
-    if (token) {
-      commit(SET_TOKEN, token);
-    } else {
-      commit(REMOVE_TOKEN);
-    }
-  },
-  async loadUser({ commit, state }) {
-    if (state.user) {
-      return state.user
-    }
-    const { data } = await auth.getAccountDetails()
-    commit('SET_USER', data)
-  }
 };
 
 const mutations = {
   ['setUser'](state, user) {
     state.user = user;
+  },
+  ['setMockUsers'](state, users) {
+    state.users = users;
   },
 };
 

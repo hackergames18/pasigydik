@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form v-if="!currentUser" class="form-signin" @submit.prevent="handleSubmit">
+    <form class="form-signin" @submit.prevent="handleSubmit">
       <div class="text-center mb-4">
         <!-- <img class="mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <h1 class="h3 mb-3 font-weight-normal">Sign in</h1>
@@ -25,9 +25,6 @@
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2018</p>
     </form>
-    <div v-else>
-      You're already signed in {{ currectUser.email }}!
-    </div>
   </div>
 </template>
 
@@ -38,20 +35,24 @@ import { mapGetters } from 'vuex'
   export default {
     data() {
       return {
-        email: 'zigmas@slusnys.com  ',
+        email: 'zigmas@slusnys.com',
         password: 'zigmas'
       }
     },
     computed: {
-      ...mapGetters({currentUser: 'auth/getUser'})
+      ...mapGetters(['getUsers'])
     },
     methods: {
-      handleSubmit: function () {
+      handleSubmit: async function () {
         if (this.email === '' || this.password === '') {
           console.log('you cant enter empty fields')
           return
         }
-        this.$store.dispatch('auth/login', {email: this.email, password: this.password})
+        console.log(this.getUsers)
+        // this.$store.dispatch('login', {
+        //   email: this.email, password: this.password
+        // })
+        console.log('successfully logged in')
         // firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
         //   // Handle Errors here.
         //   var errorCode = error.code;
