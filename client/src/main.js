@@ -24,8 +24,6 @@ const app = firebase.initializeApp({
 //       console.log(doc.id, " => ", doc.data());
 //   });
 // });
-store.dispatch('initializeCategories')
-store.dispatch('initilaizeMockUsers')
 
 Vue.use(VueRouter)
 

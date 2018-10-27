@@ -1,40 +1,42 @@
 import categories from '../mock/categories'
-import mockUsers from '../mock/users'
+import * as mocks from '../mock/users'
+import Vue from 'vue';
 
 const state = {
-  categories: [],
+  categories: {},
   doctors: {},
   users: {},
-  user: null
+  user: mocks.mockUsers['firstUseruid']
+  // user: null
 };
 
 const getters = {
   getDoctors: state => state.doctors,
-  getCategories: state => state.categories,
+  getCategories: state => Object.keys(state.categories).map(id => state.categories[id]),
   getUser: state => state.user,
-  getUsers: state => state.users
+  getUsers: state => Object.keys(state.users).map(id => state.users[id])
 };
 
 const actions = {
   initilaizeMockUsers({commit}) {
-    commit('setMockUsers', mockUsers)
+    const data = mocks.mockUsers
+    commit('setMockUsers', {...mocks.mockUsers})
   },
   initializeCategories({ commit }) {
     commit('setCategories', categories)
   },
   async register({ commit }, {email, password, type }) {
   },
-  async login({ commit, getters }, { email, password }) {
-    console.log(getters)
-    console.log(getters.getUser())
-    return
-    console.log(users)
+  login({ commit, getters }, { email, password }) {
+    const users = getters.getUsers
     let foundUser = null
     users.forEach(user => {
       if (user.email === email && user.password === password) {
         foundUser = user
       }
     });
+    console.log(foundUser)
+    commit('setUser', foundUser)
   }
 };
 
@@ -46,12 +48,11 @@ const mutations = {
     state.user = user;
   },
   ['setMockUsers'](state, users) {
-    state.users = users;
+    Vue.set(state, 'users', users)
   },
 };
 
 export default {
-  namespaced: false,
   state,
   getters,
   actions,

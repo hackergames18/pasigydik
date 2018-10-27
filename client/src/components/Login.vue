@@ -39,20 +39,24 @@ import { mapGetters } from 'vuex'
         password: 'zigmas'
       }
     },
+    created(){
+      console.log(this.$store.getters.getUsers[0])
+    },
     computed: {
-      ...mapGetters(['getUsers'])
+      ...mapGetters({user:'getUser'})
     },
     methods: {
-      handleSubmit: async function () {
+      handleSubmit: function () {
         if (this.email === '' || this.password === '') {
           console.log('you cant enter empty fields')
           return
         }
-        console.log(this.getUsers)
-        // this.$store.dispatch('login', {
-        //   email: this.email, password: this.password
-        // })
-        console.log('successfully logged in')
+        this.$store.dispatch('login', {
+          email: this.email, password: this.password
+        })
+        if (this.user) {
+          this.$router.push('home')
+        }
         // firebase.auth().signInWithEmailAndPassword(this.email, this.password).catch(function(error) {
         //   // Handle Errors here.
         //   var errorCode = error.code;

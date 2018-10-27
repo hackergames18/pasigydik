@@ -17,13 +17,19 @@
 </template>
 
 <script>
+import Home from './components/Home'
 export default {
   name: 'app',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  created() {
+    this.$store.dispatch('initializeCategories')
+    this.$store.dispatch('initilaizeMockUsers')
+  },
+  components: {Home, }
 }
 </script>
 
