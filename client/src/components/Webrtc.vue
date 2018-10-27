@@ -14,10 +14,8 @@
       <img :src="img" alt="">
     </div>
 
-
-    <button id="btn-open-room">Open Room</button>
-    <button id="btn-join-room">Join Room</button>
     <button id="btn-open-and-join" @click="openAndJoinRoom">Open and join room</button>
+    <button id="close-connection" @click="closeConnection">Close Connection</button>
     <hr>
 
   </div>
@@ -25,25 +23,7 @@
 
 
 <script>
-// roomId & onclick script:
-var predefinedRoomId = "YOUR_Name";
-
-// document.getElementById('btn-open-room').onclick = function () {
-//   this.disabled = true;
-//   connection.open(predefinedRoomId);
-// };
-
-// document.getElementById('btn-join-room').onclick = function () {
-//   this.disabled = true;
-//   connection.join(predefinedRoomId);
-// };
-
-// document.getElementById("btn-open-and-join").onclick = function () {
-//   connection.open(predefinedRoomId);
-//   connection.join(predefinedRoomId);
-// }
-
-// Connection script:
+var predefinedRoomId = "hackergames2018";
 
 var connection = new RTCMultiConnection();
 
@@ -71,6 +51,20 @@ export default {
     openAndJoinRoom() {
       connection.open(predefinedRoomId);
       connection.join(predefinedRoomId);
+    },
+    closeConnection() {
+      // disconnect with all users
+      connection.getAllParticipants().forEach(function(pid) {
+        connection.disconnectWith(pid);
+      });
+
+      // stop all local cameras
+      connection.attachStreams.forEach(function(localStream) {
+        localStream.stop();
+      });
+
+      // close socket.io connection
+      connection.closeSocket();
     },
   },
 };
