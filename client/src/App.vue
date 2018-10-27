@@ -33,15 +33,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @font-face {
   font-family: "Production Sans";
-  src: url("./assets/product_sans_regular.ttf") format("truetype");
+  src: url("./assets/fonts/product_sans_bold.ttf") format("truetype");
 }
 
 #app {
   // font-family: "Open Sans", sans-serif;
-  font-family: "Product Sans";
+  font-family: "Product Sans", sans-serif;
+  font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

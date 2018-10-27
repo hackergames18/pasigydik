@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+// var utils = require('utils')
 require("babel-polyfill");
 
 
@@ -64,12 +65,12 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf|otf)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
     ]
   },
   resolve: {
