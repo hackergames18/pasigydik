@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+// Routes
+const userAuth = require("./api/userAuth");
+const user = require("./api/user");
+
 // Port
 const port = process.env.SERVER_PORT || 5000;
 
@@ -26,7 +30,10 @@ const db = "mongodb://server:server123@ds143293.mlab.com:43293/daktaras";
 mongoose
   .connect(
     db,
-    { useNewUrlParser: true, autoIndex: process.env.NODE_ENV === "production" ? false : true }
+    {
+      useNewUrlParser: true,
+      autoIndex: process.env.NODE_ENV === "production" ? false : true,
+    }
   )
   .then(() => console.log("~Connected to mongoDB"))
   .catch((err) => console.log("~Error occured while connecting to mongoDB: ", err));
@@ -37,6 +44,7 @@ mongoose
 
 /** Routing - accessable by homepage:server_port/api/<theRoute> */
 // app.use("/api/userAuth", userAuth);
-// app.use("/api/users", users);
+app.use("/api/userAuth", userAuth);
+app.use("/api/user", user);
 
 app.listen(port, () => console.log(`~Server started on port ${port}`));
