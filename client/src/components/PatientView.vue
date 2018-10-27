@@ -74,7 +74,7 @@ export default {
   font-weight: 400;
 }
 .userName {
-  color: #2191fb;
+  color: #2191fb !important;
 }
 .doctor-bubble {
   color: white;

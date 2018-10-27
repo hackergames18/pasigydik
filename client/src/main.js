@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import WebRTC from 'vue-webrtc'
+// import WebRTC from 'vue-webrtc'
 // import store from './store/index'
 
 
@@ -27,7 +27,7 @@ const app = firebase.initializeApp({
 //       console.log(doc.id, " => ", doc.data());
 //   });
 // });
-Vue.use(WebRTC)
+// Vue.use(WebRTC)
 Vue.use(VueRouter)
 
 new Vue({

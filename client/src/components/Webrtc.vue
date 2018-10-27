@@ -50,6 +50,11 @@ connection.onstream = function(event) {
 };
 
 export default {
+  data() {
+    return {
+      roomId: ''
+    }
+  },
   methods: {
     openAndJoinRoom() {
       connection.open(predefinedRoomId);
