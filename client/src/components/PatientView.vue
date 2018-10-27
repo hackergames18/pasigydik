@@ -19,14 +19,19 @@
 
       </AppointmentsList>
     </div>
+    <div>
+      Kamerike
+      <Webrtc/>
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
 import AppointmentsList from './AppointmentsList'
+import Webrtc from './Webrtc'
   export default {
-    components: { AppointmentsList },
+    components: { AppointmentsList, Webrtc },
     data() {
       return {
         search: '',
