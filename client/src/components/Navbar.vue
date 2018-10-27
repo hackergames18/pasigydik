@@ -3,7 +3,6 @@
     <a class="navbar-brand" href="#">
       <router-link class="text-dark" to="/"><span class="text-primary">cure</span>lla.com</router-link>
 
-
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,14 +17,17 @@
         <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" href="#">Advice</a>
-          </li>
+          </li> -->
         <li class="nav-item">
             <a class="nav-link" href="#">FAQ</a>
           </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Reviews</a>
+        </li> -->
+        <li class="nav-item">
+          <router-link to="home" class="nav-link" href="#">Currella yourself</router-link>
         </li>
         <!-- TODO - Dividerio reikia (|) -->
         <div v-if="!user">
@@ -39,7 +41,7 @@
     <div v-else>
       <li class="nav-item">
 
-            <router-link to="appointments" class="nav-link action-link" href="#">My appointments</router-link>
+            <router-link to="appointments" class="nav-link" href="#">My appointments</router-link>
           </li>
       <li class="nav-item">
             <a class="nav-link" @click="logout" href="#">Logout</a>
@@ -68,6 +70,7 @@ export default {
 
 <style scoped lang="scss">
 $default-color: #2191fb;
+$link-color: #5f6060;
 
 .navbar {
   background-color: #f7f7f7;
@@ -75,6 +78,10 @@ $default-color: #2191fb;
 
 .action-link {
   color: $default-color !important;
+}
+
+.nav-link {
+  color: $link-color !important;
 }
 
 .navbar-brand {
