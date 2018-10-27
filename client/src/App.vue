@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-  <!-- <Navbar></Navbar> -->
+  <Navbar></Navbar>
 
     <main role="main">
         <div class="container-fluid">
@@ -42,6 +42,10 @@ export default {
   // color: #2c3e50;
   color: #353b3c;
   min-height: 100vh;
+}
+
+body {
+  background-color: #f7f7f7;
 }
 
 h1,

@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand" href="#">
       <span class="text-primary">cure</span>lla.com
     </a>
@@ -27,10 +27,11 @@
           </li>
         <!-- TODO - Dividerio reikia (|) -->
         <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+          <router-link class="nav-link" to="login">Login</router-link>
           </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+          <router-link class="nav-link signup-link" to="register">Sign up</router-link>
+            <!-- <a class="nav-link" href="#">Sign up</a> -->
           </li>
       </ul>
     </div>
@@ -42,7 +43,14 @@ export default {};
 </script>
 
 <style scoped>
+.navbar {
+  background-color: #f7f7f7;
+}
 .navbar-brand {
   font-size: 2em;
+  padding-left:100px;
+}
+.signup-link {
+  color: #2191fb !important;
 }
 </style>

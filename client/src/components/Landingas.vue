@@ -3,9 +3,8 @@
     <section id="first">
 
       <div class="main">
-        <div class="container">
           <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="align-left">
                 <h1>Medical attention from the comfort of your home.</h1>
                 <button type="button" id="landing-signup" class="btn  btn-lg">
@@ -13,14 +12,12 @@
                 </button>
               </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-6">
               <img src="../assets/landing.png" alt="" class="landing-img">
-              TODO Image
             </div>
 
           </div>
           <h1></h1>
-        </div>
 
       </div>
     </section>
@@ -92,10 +89,19 @@ section#first {
   min-height: 93vh;
 
   .landing-img {
+    height: 750px;
+    padding-left:0px;
+    margin-top: 100px;
+    // background: url('../assets/landing.png');
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // -o-background-size: cover;
+    // background-size: cover;
     // TODO
   }
 
   .align-left {
+    padding-left: 200px;
     margin-top: 40%;
     text-align: left;
   }

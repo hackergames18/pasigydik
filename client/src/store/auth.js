@@ -20,7 +20,7 @@
 //   login({ commit, state }, { email, password }) {
 //     console.log(getters)
 //     console.log(state.users)
-//     return
+//     // return
 //     console.log(users)
 //     let foundUser = null
 //     users.forEach(user => {
@@ -30,25 +30,26 @@
 //     });
 //     commit('setUser', foundUser)
 //     // console.log(email, password)
-//     // // auth().signInWithEmailAndPassword(email, password).catch()
-//     // await auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-//     //   // Handle Errors here.
-//     //   var errorCode = error.code;
-//     //   console.log(errorCode)
-//     //   var errorMessage = error.message;
-//     //   console.log(errorMessage)
-//     //   // ...
-//     //   throw error
-//     // });
+//     // auth().signInWithEmailAndPassword(email, password).catch()
+//     await auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+//       // Handle Errors here.
+//       var errorCode = error.code;
+//       console.log(errorCode)
+//       var errorMessage = error.message;
+//       console.log(errorMessage)
+//       // ...
+//       throw error
+//     });
 //     // commit('setUser', auth().currentUser)
-//     // try {
-//     //   await auth().signInWithEmailAndPassword(email, password)
-//     //   commit('setUser', 'success')
-//     // } catch (error) {
-//     //   console.log('error happened while loggin in')
-//     //   console.log(error)
-//     //   throw error
-//     // }
+//     try {
+//       let user = await auth().signInWithEmailAndPassword(email, password)
+//       auth().currentUser
+//       commit('setUser', auth().currentUser)
+//     } catch (error) {
+//       console.log('error happened while loggin in')
+//       console.log(error)
+//       throw error
+//     }
 //   },
 //   register({ commit }, {email, password, type }) {
 //     commit('addUser')

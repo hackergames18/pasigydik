@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="doctor-instance">
+    <div class="doctor-instance d-flex con">
+
       {{ doctor }}
     </div>
   </div>
@@ -19,6 +20,8 @@
 
 <style scoped>
   .doctor-instance {
+    background-color: #fff;
+    width: 500px;
     border: 1px gray solid ;
     border-radius: 3px;
   }
