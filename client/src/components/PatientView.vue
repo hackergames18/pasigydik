@@ -22,10 +22,6 @@
 
       </AppointmentsList>
     </div>
-    <div>
-      Kamerike
-      <Webrtc/>
-    </div>
   </div>
 </template>
 

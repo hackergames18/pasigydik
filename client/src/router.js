@@ -3,6 +3,7 @@ import Login from './components/Login'
 import Home from './components/Home'
 import Register from './components/Register'
 import Landingas from "./components/Landingas"
+import MyAppointments from "./components/MyAppointments"
 import store from './store'
 
 const requireAuthentication = (to, from, next) => {
@@ -12,9 +13,6 @@ const requireAuthentication = (to, from, next) => {
     next()
   }
 }
-
-
-
 
 const routes = [
   { path: '/home', component: Home, beforeEnter: requireAuthentication },
@@ -30,7 +28,8 @@ const routes = [
         next()
       }
     }
-  }
+  },
+  { path: "/appointments", component: MyAppointments }
 ]
 
 export default new VueRouter({

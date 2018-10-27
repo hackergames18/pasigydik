@@ -29,38 +29,39 @@
         </li>
         <!-- TODO - Dividerio reikia (|) -->
         <div v-if="!user">
-          <li class="nav-item">
+        <li class="nav-item">
             <router-link class="nav-link" to="login">Login</router-link>
             </li>
-          <li class="nav-item">
+        <li class="nav-item">
             <router-link class="nav-link signup-link" to="register">Sign up</router-link>
           </li>
-        </div>
-        <div v-else>
-          <li class="nav-item">
-            <a class="nav-link action-link" href="#">My appointments</a>
+    </div>
+    <div v-else>
+      <li class="nav-item">
+
+            <router-link to="appointments" class="nav-link action-link" href="#">My appointments</router-link>
           </li>
-          <li class="nav-item">
+      <li class="nav-item">
             <a class="nav-link" @click="logout" href="#">Logout</a>
           </li>
-        </div>
-      </ul>
+    </div>
+    </ul>
     </div>
   </nav>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters({user: 'getUser'})
+    ...mapGetters({ user: "getUser" }),
   },
   methods: {
     logout() {
-      this.$store.dispatch('logout')
-      this.$router.push('/')
-    }
+      this.$store.dispatch("logout");
+      this.$router.push("/");
+    },
   },
 };
 </script>
@@ -71,13 +72,16 @@ $default-color: #2191fb;
 .navbar {
   background-color: #f7f7f7;
 }
+
 .action-link {
   color: $default-color !important;
 }
+
 .navbar-brand {
   font-size: 2em;
-  padding-left:100px;
+  padding-left: 100px;
 }
+
 .signup-link {
   color: #2191fb !important;
 }
