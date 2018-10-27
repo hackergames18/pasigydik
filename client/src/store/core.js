@@ -1,5 +1,6 @@
 import categories from '../mock/categories'
 import * as mocks from '../mock/users'
+import mockDoctors from '../mock/doctors'
 import Vue from 'vue';
 
 const state = {
@@ -11,7 +12,7 @@ const state = {
 };
 
 const getters = {
-  getDoctors: state => state.doctors,
+  getDoctors: state => Object.keys(state.doctors).map(id => state.doctors[id]),
   getCategories: state => Object.keys(state.categories).map(id => state.categories[id]),
   getUser: state => state.user,
   getUsers: state => Object.keys(state.users).map(id => state.users[id])
@@ -19,8 +20,9 @@ const getters = {
 
 const actions = {
   initilaizeMockUsers({commit}) {
-    const data = mocks.mockUsers
-    commit('setMockUsers', {...mocks.mockUsers})
+    const mockUsers = mocks.mockUsers
+    commit('setMockUsers', mockUsers)
+    commit('setMockDoctors', mockDoctors)
   },
   initializeCategories({ commit }) {
     commit('setCategories', categories)
@@ -49,6 +51,9 @@ const mutations = {
   },
   ['setMockUsers'](state, users) {
     Vue.set(state, 'users', users)
+  },
+  ['setMockDoctors'](state, doctors) {
+    state.doctors = doctors
   },
 };
 

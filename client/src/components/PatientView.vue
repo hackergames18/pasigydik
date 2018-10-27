@@ -9,21 +9,28 @@
     <input type="text" v-model="search" placeholder="What type of specialist are you looking for?">
     <div class="specialist-list">
       <div v-for="category in filteredCategories" :key="category.id">
-        <a class="btn btn-seconday">
+        <a class="btn btn-primary doctor-bubble" @click="selectCategory(category.id)">
           {{ category.name }}
         </a>
       </div>
+    </div>
+    <div class="apointments-list">
+      <AppointmentsList :selectedCategory="selectedCategory">
+
+      </AppointmentsList>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
+import AppointmentsList from './AppointmentsList'
   export default {
+    components: { AppointmentsList },
     data() {
       return {
-        search: ''
+        search: '',
+        selectedCategory: ''
       }
     },
     computed: {
@@ -36,11 +43,23 @@ import { mapGetters } from 'vuex';
       }
 
     },
+    methods: {
+      selectCategory(category) {
+        this.selectedCategory = category
+
+      }
+    },
   }
 </script>
 
 <style scoped>
 .userName {
-  color: #2191fb
+  color: #2191fb;
+}
+.doctor-bubble {
+  color: white;
+}
+.apointments-list {
+  padding-top: 100px;
 }
 </style>

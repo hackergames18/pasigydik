@@ -1,6 +1,6 @@
 export default {
-  "dietitianid": {
-    id: 'dietitianid',
+  "dietitian": {
+    id: 'dietitian',
     name: 'Dietian',
     doctors: [1,2]
   },
@@ -10,8 +10,8 @@ export default {
     doctors: [3,4]
 
   },
-  "facmilydoctor": {
-    id: 'facmilydoctor',
+  "familydoctor": {
+    id: 'familydoctor',
     name: 'Family Doctor',
     doctors: [5,6]
 
@@ -21,5 +21,5 @@ export default {
     name: 'Traumatologist',
     doctors: [7,8]
 
-  }
+  },
 }
