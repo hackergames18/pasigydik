@@ -1,22 +1,24 @@
 <template>
-  <div class="">
-    <input type="text" v-model="roomId" placeholder="Room name">
-    <!-- <vue-webrtc ref="webrtc"
-                width="100%"
-                roomId="roomId"
-                cameraHeight="300"
-                socketURL="https://rtcmulticonnection.herokuapp.com:443/"
-                /> -->
-    <!-- <button class="btn btn-primary" @click="joinRoom">Join room</button>
-    <button class="btn btn-primary" @click="leaveRoom">Leave room</button>
-    <button class="btn btn-primary" @click="captureImage">Capture image</button> -->
-    <div class="" v-if="img">
-      <img :src="img" alt="">
+  <div id="consult" class="consult">
+    <!-- TODO - auto generate room ID with server -->
+    <input id="room-id-input" type="text" v-model="roomId" placeholder="Room ID">
+
+    <button id="start-call" @click="openAndJoinRoom">Open and join room (call)</button>
+    <button id="end-call" @click="closeConnection">Close Connection (end call)</button>
+    <hr>
+
+    <div id="live-consult">
+
     </div>
 
-    <button id="btn-open-and-join" @click="openAndJoinRoom">Open and join room</button>
-    <button id="close-connection" @click="closeConnection">Close Connection</button>
-    <hr>
+    <!-- #TODO - reikia custom placemento pagal tai,
+  kas prisijungęs - daktaras arba pacientas -->
+    <!-- <div id="live-consult-patient">
+
+  </div>
+  <div id="live-consult-doctor">
+
+  </div> -->
 
   </div>
 </template>
@@ -43,7 +45,8 @@ connection.sdpConstraints.mandatory = {
 };
 
 connection.onstream = function(event) {
-  document.body.appendChild(event.mediaElement);
+  // document.body.appendChild(event.mediaElement);
+  document.getElementById("live-consult").appendChild(event.mediaElement);
 };
 
 export default {
@@ -51,6 +54,7 @@ export default {
     openAndJoinRoom() {
       connection.open(predefinedRoomId);
       connection.join(predefinedRoomId);
+      // connection.openOrJoin(predefinedRoomId);
     },
     closeConnection() {
       // disconnect with all users
@@ -71,4 +75,18 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#room-id-input,
+#start-call,
+#end-call {
+  padding: 0.5em;
+}
+
+#room-id-input {
+}
+
+#start-call {
+}
+
+#end-call {
+}
 </style>

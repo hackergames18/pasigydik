@@ -4,6 +4,7 @@ import Home from './components/Home'
 import Register from './components/Register'
 import Landingas from "./components/Landingas"
 import MyAppointments from "./components/MyAppointments"
+import WebRTC from "./components/WebRTC"
 import store from './store'
 
 const requireAuthentication = (to, from, next) => {
@@ -29,7 +30,8 @@ const routes = [
       }
     }
   },
-  { path: "/appointments", component: MyAppointments }
+  { path: "/appointments", component: MyAppointments },
+  { path: "/consult", component: WebRTC }
 ]
 
 export default new VueRouter({
