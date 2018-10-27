@@ -39,6 +39,9 @@ const actions = {
     });
     console.log(foundUser)
     commit('setUser', foundUser)
+  },
+  logout({ commit }) {
+    commit('setUser', null)
   }
 };
 
