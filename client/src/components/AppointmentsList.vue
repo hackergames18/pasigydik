@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h4>
+    <h4 v-if="selectedCategory">
       Appointments list
     </h4>
-    <DoctorAppointmentCard :doctor="doctor" v-for="doctor in filteredDoctors" :key="doctor.id" />
+    <DoctorAppointmentCard class="doctor-appointment-container d-flex justify-content-center" :doctor="doctor" v-for="doctor in filteredDoctors" :key="doctor.id" />
   </div>
 </template>
 
@@ -28,5 +28,7 @@ import DoctorAppointmentCard from './DoctorAppointmentCard'
 </script>
 
 <style scoped>
-
+.doctor-appointment-container {
+  margin-top: 50px;
+}
 </style>

@@ -22,4 +22,22 @@ export default {
     doctors: [7,8]
 
   },
+  "radiologist": {
+    id: 'radiologist',
+    name: 'Radiologist',
+    doctors: [7,8]
+
+  },
+  "allergists": {
+    id: 'allergists',
+    name: 'Allergists',
+    doctors: [7,8]
+
+  },
+  "physician": {
+    id: 'physician',
+    name: 'Physician',
+    doctors: [7,8]
+
+  },
 }

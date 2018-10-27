@@ -1,17 +1,19 @@
 <template>
   <div>
-    <h3>
+    <h3 class="toph3">
       Glad to have you here, <span class="userName">{{ userName }}</span>
     </h3>
-    <p>
+    <p class="subtext text-secondary">
       Find a doctor and register for your appointment
     </p>
     <input type="text" class="spec-search" v-model="search" placeholder="I'm looking for...">
-    <div class="specialist-list">
-      <div v-for="category in filteredCategories" :key="category.id">
-        <a class="btn btn-primary doctor-bubble text-light mt-1" @click="selectCategory(category.id)">
-          {{ category.name }}
-        </a>
+    <div class="specialist-list d-flex justify-content-center">
+      <div class="d-flex justify-content-center flex-wrap items-container">
+        <div v-for="category in filteredCategories" :key="category.id">
+          <a class="btn btn-primary doctor-bubble text-light mt-1" @click="selectCategory(category.id)">
+            {{ category.name }}
+          </a>
+        </div>
       </div>
     </div>
     <div class="apointments-list">
@@ -52,7 +54,23 @@ import AppointmentsList from './AppointmentsList'
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.specialist-list {
+  margin-top: 20px;
+  width: 700;
+  div {
+    margin: 5px;
+  }
+}
+.items-container {
+max-width: 700px;
+}
+.toph3 {
+  margin-top:100px;
+}
+.subtext {
+  font-weight: 400;
+}
 .userName {
   color: #2191fb;
 }
