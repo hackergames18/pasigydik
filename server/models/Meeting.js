@@ -8,7 +8,7 @@ const MeetingSchema = new Schema(
     doctor: { type: ObjectId, ref: "User" },
     startTime: { type: Date },
     // reikia debugint šitą
-    endTime: { type: Date, default: startTime.getTime() + 20 * 60 * 1000 },
+    endTime: { type: Date },
   },
   { id: false }
 );

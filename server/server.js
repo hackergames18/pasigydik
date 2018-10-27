@@ -8,6 +8,7 @@ const app = express();
 // Routes
 const userAuth = require("./api/userAuth");
 const user = require("./api/user");
+const meeting = require("./api/meeting");
 
 // Port
 const port = process.env.SERVER_PORT || 5000;
@@ -46,5 +47,6 @@ mongoose
 // app.use("/api/userAuth", userAuth);
 app.use("/api/userAuth", userAuth);
 app.use("/api/user", user);
+app.use("/api/meeting", meeting);
 
 app.listen(port, () => console.log(`~Server started on port ${port}`));
