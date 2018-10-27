@@ -3,15 +3,15 @@
     <h4>
       Appointments list
     </h4>
-    <p>{{selectedCategory}}</p>
-    <p>{{filteredDoctors}}</p>
+    <DoctorAppointmentCard :doctor="doctor" v-for="doctor in filteredDoctors" :key="doctor.id" />
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-
+import DoctorAppointmentCard from './DoctorAppointmentCard'
   export default {
+    components: {DoctorAppointmentCard},
     props: {
       selectedCategory: {
         type: String,
