@@ -52,11 +52,12 @@ connection.onstream = function(event) {
 export default {
   data() {
     return {
-      roomId: ''
-    }
+      roomId: "",
+    };
   },
   methods: {
     openAndJoinRoom() {
+      console.log("event.userid", event.userid);
       connection.checkPresence(predefinedRoomId, function(isRoomExist, roomid) {
         if (isRoomExist === true) {
           connection.join(roomid);
@@ -88,6 +89,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+div#live-consult {
+  &:first-child {
+    position: relative;
+  }
+  &:nth-child(2) {
+    position: absolute;
+    width: 100px;
+  }
+}
+
 #room-id-input,
 #start-call,
 #end-call {
