@@ -7,9 +7,11 @@
             <div class="col-md-6">
               <div class="align-left">
                 <h1>Medical attention from the comfort of your home.</h1>
+                <router-link to="/register">
                 <button type="button" id="landing-signup" class="btn  btn-lg">
                   Sign up
                 </button>
+                </router-link>
               </div>
             </div>
             <div class="col-md-6 hide-image-overflow">
@@ -84,7 +86,7 @@ export default {
 }
 
 .hide-image-overflow {
-  overflow:hidden
+  overflow: hidden;
 }
 section#first {
   background-color: #f7f7f7;
@@ -93,7 +95,7 @@ section#first {
 
   .landing-img {
     height: 750px;
-    padding-left:0px;
+    padding-left: 0px;
     margin-top: 100px;
     // background: url('../assets/landing.png');
     // -webkit-background-size: cover;
