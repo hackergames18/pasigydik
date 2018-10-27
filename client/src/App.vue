@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-  <Navbar></Navbar>
+  <!-- <Navbar></Navbar> -->
 
     <main role="main">
         <div class="container-fluid">
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Home from "./components/Home";
+import Home from './components/Home'
 import Navbar from "./components/Navbar";
 
 export default {
