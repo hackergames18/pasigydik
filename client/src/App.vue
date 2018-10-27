@@ -34,12 +34,17 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@font-face {
+  font-family: "Production Sans";
+  src: url("./assets/product_sans_regular.ttf") format("truetype");
+}
+
 #app {
-  font-family: "Open Sans", sans-serif;
+  // font-family: "Open Sans", sans-serif;
+  font-family: "Product Sans";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  // color: #2c3e50;
   color: #353b3c;
   min-height: 100vh;
 }
