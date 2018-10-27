@@ -1,43 +1,94 @@
 export default {
-  "dietitian": {
-    id: 'dietitian',
-    name: 'Dietian',
-    doctors: [1,2]
+  audiologist: {
+    id: "audiologist",
+    name: "Audiologist",
   },
-  "odontologist": {
-    id: 'odontologist',
-    name: 'Odontologist',
-    doctors: [3,4]
-
+  allergist: {
+    id: "allergist",
+    name: "Allergist",
+    doctors: [7, 8],
   },
-  "familydoctor": {
-    id: 'familydoctor',
-    name: 'Family Doctor',
-    doctors: [5,6]
-
+  cardiologist: {
+    id: "cardiologist",
+    name: "Cardiologist",
   },
-  "traumatologist": {
-    id: 'traumatologist',
-    name: 'Traumatologist',
-    doctors: [7,8]
-
+  dentist: {
+    id: "dentist",
+    name: "Dentist",
   },
-  "radiologist": {
-    id: 'radiologist',
-    name: 'Radiologist',
-    doctors: [7,8]
-
+  dietitian: {
+    id: "dietitian",
+    name: "Dietitian",
+    doctors: [1, 2],
   },
-  "allergists": {
-    id: 'allergists',
-    name: 'Allergists',
-    doctors: [7,8]
-
+  epidemiologist: {
+    id: "epidemiologist",
+    name: "Epidemiologist",
   },
-  "physician": {
-    id: 'physician',
-    name: 'Physician',
-    doctors: [7,8]
-
+  familydoctor: {
+    id: "familydoctor",
+    name: "Family Doctor",
+    doctors: [5, 6],
   },
-}
+  gynecologist: {
+    id: "gynecologist",
+    name: "Gynecologist",
+  },
+  immunologist: {
+    id: "immunologist",
+    name: "Immunologist",
+  },
+  microbiologist: {
+    id: "microbiologist",
+    name: "Microbiologist",
+  },
+  neurologist: {
+    id: "neurologist",
+    name: "Neurologist",
+  },
+  neurosurgeon: {
+    id: "neurosurgeon",
+    name: "Neurosurgeon",
+  },
+  nutritionist: {
+    id: "nutritionist",
+    name: "Nutritionist",
+    doctors: [1, 2],
+  },
+  entspecialist: {
+    id: "entspecialist",
+    name: "ENT Specialist",
+  },
+  pediatrician: {
+    id: "pediatrician",
+    name: "Pediatrician",
+  },
+  plasticsurgeon: {
+    id: " plasticsurgeon",
+    name: " Plastic Surgeon",
+  },
+  psychiatrist: {
+    id: "psychiatrist",
+    name: "Psychiatrist",
+  },
+  radiologist: {
+    id: "radiologist",
+    name: "Radiologist",
+    doctors: [7, 8],
+  },
+  odontologist: {
+    id: "odontologist",
+    name: "Odontologist",
+    doctors: [3, 4],
+  },
+  traumatologist: {
+    id: "traumatologist",
+    name: "Traumatologist",
+    doctors: [7, 8],
+  },
+  physician: {
+    id: "physician",
+    name: "Physician",
+    doctors: [7, 8],
+  },
+};
