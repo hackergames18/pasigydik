@@ -1,0 +1,27 @@
+{
+  "name": "pasigydikfork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm run start --prefix server",
+    "client": "npm run dev --prefix client",
+    "start": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loruz/pasigydik.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Loruz/pasigydik/issues"
+  },
+  "homepage": "https://github.com/Loruz/pasigydik#readme",
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.5"
+  }
+}
