@@ -38,8 +38,11 @@
 </template>
 
 <script>
-  export default {};
+export default {};
 </script>
 
 <style scoped>
+.navbar-brand {
+  font-size: 2em;
+}
 </style>

@@ -14,23 +14,22 @@
 </template>
 
 <script>
-import Home from './components/Home'
+import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 
 export default {
   name: "app",
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App",
+    };
   },
   created() {
-    this.$store.dispatch('initializeCategories')
-    this.$store.dispatch('initilaizeMockUsers')
+    this.$store.dispatch("initializeCategories");
+    this.$store.dispatch("initilaizeMockUsers");
   },
-  components: {Home, }
-}
-
+  components: { Home, Navbar },
+};
 </script>
 
 <style lang="scss">
