@@ -28,7 +28,7 @@ export default {
     this.$store.dispatch('initializeCategories')
     this.$store.dispatch('initilaizeMockUsers')
   },
-  components: {Home, }
+  components: {Home, Navbar },
 }
 
 </script>
