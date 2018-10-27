@@ -3,23 +3,23 @@
     <section id="first">
 
       <div class="main">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="align-left">
-                <h1>Medical attention from the comfort of your home.</h1>
-                <router-link to="/register">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="align-left">
+              <h1>Medical attention from the comfort of your home.</h1>
+              <router-link to="/register">
                 <button type="button" id="landing-signup" class="btn  btn-lg">
                   Sign up
                 </button>
-                </router-link>
-              </div>
+              </router-link>
             </div>
-            <div class="col-md-6 hide-image-overflow">
-              <img src="../assets/landing.png" alt="" class="landing-img">
-            </div>
-
           </div>
-          <h1></h1>
+          <div class="col-md-6 hide-image-overflow">
+            <img src="../assets/landing.png" alt="" class="landing-img">
+          </div>
+
+        </div>
+        <h1></h1>
 
       </div>
     </section>
@@ -28,9 +28,10 @@
       <div class="container">
         <h1 class="text-center">Choose from a variety of our specialists</h1>
 
-        <div class="row">
+        <div class="d-flex justify-content-center flex-wrap items-container">
+
           <span v-for="spec in specialists" :key="spec.id">
-            <button class=" specialist mx-2" type="button">
+            <button class="specialist mx-2" type="button">
               {{ spec }}
             </button>
           </span>
@@ -74,6 +75,10 @@ export default {
         "Allergist",
         "Psychologist",
         "Surgeon",
+        "Traumatologist",
+        "Radiologist",
+        "Dank Memer",
+        "Allergist",
       ],
     };
   },
@@ -88,6 +93,7 @@ export default {
 .hide-image-overflow {
   overflow: hidden;
 }
+
 section#first {
   background-color: #f7f7f7;
   padding-bottom: 5em;
@@ -108,8 +114,9 @@ section#first {
   .align-left {
     padding-left: 150px;
     padding-right: 150px;
-    margin-top: 40%;
+    margin-top: 30%;
     text-align: left;
+
     h1 {
       line-height: 60px;
       font-weight: 900;
@@ -141,7 +148,7 @@ section#second {
     border-radius: 50px;
     background-color: #2191fb;
     color: #fff;
-    border: 0px solid #fff;
+    border: 0px solid transparent;
   }
 
   .ending {
