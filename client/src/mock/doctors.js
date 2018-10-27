@@ -11,7 +11,7 @@ export default {
     id: 2,
     name: 'Johny Bravo',
     description: 'Provides people with diets that make them as fit as ever.',
-    experience: 'He finished high-school musical',
+    experience: 'Everybody refers to him as a great doctor.',
     category: "dietitian",
     price: 25
   },

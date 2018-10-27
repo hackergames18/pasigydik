@@ -5,8 +5,8 @@
         <div class="col-2"><img src="../assets/doctor-picture.png" alt=""></div>
         <div class="col-2">
           <span class="font-weight-bold name">
-            <span class="d-flex flex-fill">Tomas </span>
-            <span class="d-flex flex-fill">Baladoju </span>
+            <span class="d-flex flex-fill">{{ doctor.name}} </span>
+            <span class="d-flex flex-fill">{{doctor.surname}} </span>
             <span class="d-flex flex-fill text-primary">€{{doctor.price}} p/h</span>
           </span>
         </div>
@@ -26,9 +26,26 @@
             <div class="col align-self-center">10:45</div>
           </div>
         </div>
-        <div class="col-12"></div>
-        <div class="col-12"></div>
-        <div class="col-12"></div>
+        <div class="col-12">
+          <div class="row timeline">
+            <div class="col align-self-center daystamp">10/27</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row timeline">
+            <div class="col align-self-center daystamp">10/27</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+          </div>
+        </div>
       </div>
       <!-- <div class="d-flex flex-row">
         <div class="picture-container align-items-start flex-column">
@@ -68,10 +85,12 @@
 
 <style lang="scss" scoped>
   .timeline {
+    height:100%;
     background-color: #bfbfbf;
     color: #fff;
     div {
-      // padding: 10px;
+      height:100%;
+      padding: 10px;
     }
     .daystamp {
       font-size: 24px;
@@ -82,6 +101,9 @@
     background-color: #2191fb;
     height:100%;
     padding:10px;
+  }
+  .selectedTime {
+    background-color: #2191fb;
   }
   .schedule {
     margin: 30px 0;
