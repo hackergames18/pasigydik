@@ -2,11 +2,11 @@
   <div class="">
     <input type="text" v-model="roomId" placeholder="Room name">
     <vue-webrtc ref="webrtc"
-                :roomId="roomId"
                 width="100%"
                 cameraHeight="300"
                 socketURL="https://rtcmulticonnection.herokuapp.com:443/"
-                roomId="roomId"/>
+                :roomId="roomId"
+                />
     <button class="btn btn-primary" @click="joinRoom">Join room</button>
     <button class="btn btn-primary" @click="leaveRoom">Leave room</button>
     <button class="btn btn-primary" @click="captureImage">Capture image</button>
@@ -17,30 +17,29 @@
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        roomId: '',
-        img: null
-      }
+export default {
+  data() {
+    return {
+      roomId: "",
+      img: null,
+    };
+  },
+  methods: {
+    joinRoom() {
+      this.$refs.webrtc.join();
     },
-    methods: {
-      joinRoom () {
-        this.$refs.webrtc.join();
-      },
-      captureImage() {
-        this.img = this.$refs.webrtc.capture();
-      },
-      leaveRoom() {
-        this.$refs.webrtc.leave();
-      },
+    captureImage() {
+      this.img = this.$refs.webrtc.capture();
     },
-    mounted() {
-      // this.$refs.webrtc.join();
-   }
-  }
+    leaveRoom() {
+      this.$refs.webrtc.leave();
+    },
+  },
+  mounted() {
+    // this.$refs.webrtc.join();
+  },
+};
 </script>
 
 <style scoped lang="scss">
-
 </style>
