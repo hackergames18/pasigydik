@@ -52,8 +52,16 @@ connection.onstream = function(event) {
 export default {
   methods: {
     openAndJoinRoom() {
-      connection.open(predefinedRoomId);
-      connection.join(predefinedRoomId);
+      connection.checkPresence(predefinedRoomId, function(isRoomExist, roomid) {
+        if (isRoomExist === true) {
+          connection.join(roomid);
+        } else {
+          connection.open(roomid);
+        }
+      });
+
+      // connection.open(predefinedRoomId);
+      // connection.join(predefinedRoomId);
       // connection.openOrJoin(predefinedRoomId);
     },
     closeConnection() {
