@@ -3,7 +3,8 @@
     <div class="doctor-instance">
       <div class="row">
         <div class="col-2">
-          <img src="../assets/faces/2.png" alt="">
+          <!-- <img src="../assets/faces/2.png" alt=""> -->
+          <img :src="require(`../assets/faces/${doctor.id}.png`)" alt="">
           </div>
         <div class="col-2">
           <span class="font-weight-bold name">
