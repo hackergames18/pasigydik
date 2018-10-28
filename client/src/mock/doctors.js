@@ -3,6 +3,7 @@ const times = {
   '10/29': ['10:10', '11:10', '14:20', '16:00', '19:30'],
   '10/30': ['09:00', '11:00', '15:00', '16:00', '20:00'],
 }
+
 export default {
   '1': {
     id: 1,
@@ -11,8 +12,7 @@ export default {
     experience: 'He finished high-school musical',
     category: "dietitian",
     price: 20,
-    times,
-    picture: '/assets/faces/1.png'
+    times
   },
   '2': {
     id: 2,
@@ -25,8 +25,8 @@ export default {
   },
   '3': {
     id: 3,
-    name: 'Lorenzo Giupi',
-    description: 'Italian odonotlogist practicing his state of art skills.',
+    name: 'Lorenza Giupi',
+    description: 'Italian odonotlogist practicing her state of art skills.',
     experience: '20 years of experience in the field',
     category: "odontologist",
     price: 30,

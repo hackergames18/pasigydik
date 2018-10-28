@@ -4,10 +4,6 @@ export default {
     name: "Allergist",
     doctors: [7, 8],
   },
-  dentist: {
-    id: "dentist",
-    name: "Dentist",
-  },
   dietitian: {
     id: "dietitian",
     name: "Dietitian",
@@ -18,18 +14,6 @@ export default {
     name: "General practitioner",
     doctors: [5, 6],
   },
-  gynecologist: {
-    id: "gynecologist",
-    name: "Gynecologist",
-  },
-  immunologist: {
-    id: "immunologist",
-    name: "Immunologist",
-  },
-  neurologist: {
-    id: "neurologist",
-    name: "Neurologist",
-  },
   nutritionist: {
     id: "nutritionist",
     name: "Nutritionist",
@@ -38,6 +22,7 @@ export default {
   pediatrician: {
     id: "pediatrician",
     name: "Pediatrician",
+    doctors: [1, 2],
   },
   plasticsurgeon: {
     id: " plasticsurgeon",

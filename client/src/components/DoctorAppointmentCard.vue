@@ -50,7 +50,7 @@
           </div>
         </div> -->
       </div>
-      <div class="row" v-if="timesSelected > 0"><div class="col"><button class="btn-primary cta float-right">CHECKOUT</button></div></div>
+      <div class="row" v-if="timesSelected > 0"><div class="col"><button @click="goToMyAppointments" class="btn-primary cta float-right">CHECKOUT</button></div></div>
     </div>
   </div>
 </template>
@@ -86,6 +86,9 @@
           this.timesSelected += 1
         }
         event.target.classList.toggle('selectedTime')
+      },
+      goToMyAppointments() {
+        this.$router.push('/appointments')
       }
     },
   }
