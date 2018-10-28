@@ -1,23 +1,52 @@
 <template>
-  <div class="container">
-    <div class="test-data">
-    id: {{id}}
-    patientId: {{patientId}}
-    doctorId: {{doctorId}}
-    startTimeMins: {{startTimeMins}}
+  <div class="appointment-item">
+    <!-- <div class="container"> -->
+    <div class="row">
+      <div class="col-md-4 my-auto">
+        <div class="year-month-day">
+
+          {{startTime.getFullYear()}}/{{ startTime.getMonth() + 1}}/{{startTime.getDate()}}
+        </div>
+        <div class="hour-min">
+          {{startTime.getHours()}}:{{startTime.getMinutes()}}
+        </div>
+      </div>
+      <div class="col-md-4 my-auto">
+        {{durationMins}} min
+      </div>
+      <div class="col-md-4 my-auto">
+        <div class="details-cancel">
+          <button>Details</button>
+          <button>Cancel</button>
+        </div>
+        <div class="join-call">
+          <button @click="joinCall">Join Call</button>
+        </div>
+      </div>
     </div>
+
   </div>
+  <!-- </div> -->
 </template>
 
 <script>
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
 export default {
+  methods: {
+    joinCall() {
+      this.$router.push({ path: "/consult", props: { roomId: this.roomId } });
+    },
+  },
   // name: "AppointmentItem",
   props: {
     id: {
       type: Number,
       default: getRandomInt(1337420360),
+    },
+    roomId: {
+      type: String,
+      default: "hackergames2018",
     },
     patientId: {
       type: Number,
@@ -27,7 +56,7 @@ export default {
       type: Number,
       default: 1,
     },
-    startTimeMins: {
+    startTime: {
       // type: Date,
       default: new Date(),
     },
@@ -43,9 +72,10 @@ export default {
   data: function() {
     return {
       id: this.id,
+      roomId: this.roomId,
       patientId: this.patientId,
       doctorId: this.doctorId,
-      startTimeMins: this.startTimeMins,
+      startTime: this.startTimeMins,
       durationMins: this.durationMins,
       details: this.details,
     };
@@ -53,5 +83,27 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+$blue: #2191fb;
+.appointment-item {
+  background-color: #fff !important;
+  margin-top: 0.2em;
+  font-size: 1.2em;
+  padding: 1em 0;
+
+  .details-cancel button {
+    background-color: transparent;
+    color: $blue;
+    border: none;
+    padding: 0 0.8em;
+  }
+  .join-call button {
+    background-color: $blue;
+    color: #fff;
+    border: none;
+    margin-top: 0.2em;
+    padding: 0.1em 2em;
+    font-weight: 550;
+  }
+}
 </style>

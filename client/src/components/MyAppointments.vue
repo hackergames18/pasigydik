@@ -11,6 +11,12 @@
     </div>
 
     <div class="sorting">
+      <div class="container">
+        <div class="row indicators">
+          <div class="col-md-4">Date</div>
+          <div class="col-md-4">Duration</div>
+          <div class="col-md-4">Actions</div>
+        </div>
       <AppointmentItem
       v-for="app in appointments"
       v-bind:key="app.id"
@@ -21,6 +27,7 @@
       v-bind:durationMins="app.durationMins"
       v-bind:details="app.details"
       ></AppointmentItem>
+      </div>
     </div>
 
   </div>
@@ -38,7 +45,7 @@ export default {
           roomId: "randomRoomIdSameAsDoctors",
           patientId: 123,
           doctorId: 456,
-          starTimeMins: Math.floor(new Date().getTime() / 1000 / 60),
+          starTimeMins: new Date(),
           durationMins: 20,
           details: {},
         },
@@ -81,6 +88,16 @@ export default {
     }
     .current {
       border-bottom: 5px solid #2191fb;
+    }
+  }
+  .sorting {
+    margin-top: 2em;
+    .indicators {
+      color: #353b3c;
+      font-size: 1.5em;
+    }
+    .container {
+      // width: 60%;
     }
   }
 }
