@@ -3,7 +3,7 @@ export const mockUsers = {
     email: 'zigmas@slusnys.com',
     "name": "Zigmas",
     "surname": "Slusnys",
-    "type": "doctor",
+    "type": "patient",
     "password": "zigmas",
     "category": ["dietitian"],
   },
@@ -12,7 +12,7 @@ export const mockUsers = {
     "uid": "secondUseruid",
     "name": "Jonas",
     "surname": "Jonaitis",
-    "type": "patient",
+    "type": "doctor",
     "password": "jonas",
     "category": [],
   }
