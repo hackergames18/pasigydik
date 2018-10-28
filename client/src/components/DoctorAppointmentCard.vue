@@ -17,57 +17,37 @@
       </div>
       <div class="row schedule">
         <div class="col-12">
-          <div class="row timeline">
-            <div class="col align-self-center daystamp">10/27</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="row timeline">
-            <div class="col align-self-center daystamp">10/27</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="row timeline">
-            <div class="col align-self-center daystamp">10/27</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-          </div>
-        </div>
-      </div>
-      <!-- <div class="d-flex flex-row">
-        <div class="picture-container align-items-start flex-column">
-          <img src="../assets/doctor-picture.png" alt="">
-        </div>
-        <div class="flex-column">
-          <span class="font-weight-bold name align-self-center">
-            <span class="d-flex flex-fill">Tomas </span>
-            <span class="d-flex flex-fill">Baladoju </span>
-            <span class="d-flex flex-fill text-primary">€{{doctor.price}} p/h</span>
-          </span>
-        </div>
-        <div class="flex-column description">
-            <div class="font-weight-normal d-flex flex-fill"><span class="font-weight-bold text-primary">Experience</span>: {{doctor.experience}}</div>
-            <div class="font-weight-normal d-flex flex-fill"><span class="font-weight-bold text-primary">Description</span>: {{doctor.description}}</div>
-        </div>
-      </div> -->
-      <!-- <div class="d-flex">
-        schedule
-      </div> -->
+            <div class="row timeline" v-for="(times, day) in visitTimes" :key="day">
 
-      <!-- {{ doctor }} -->
+              <div class="col daystamp">{{day}}</div>
+              <div class="col" v-for="time in times" :key="time.id" @click="selectTime(day, time, $event)">
+                {{ time }}
+              </div>
+            </div>
+
+        </div>
+        <!-- <div class="col-12">
+          <div class="row timeline">
+            <div class="col align-self-center daystamp">10/27</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="row timeline">
+            <div class="col align-self-center daystamp">10/27</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+            <div class="col align-self-center">10:45</div>
+          </div>
+        </div> -->
+      </div>
+      <div class="row" v-if="timesSelected > 0"><div class="col"><button class="btn-primary cta float-right">CHECKOUT</button></div></div>
     </div>
   </div>
 </template>
@@ -80,31 +60,55 @@
         default: {}
       },
     },
+    data() {
+      return {
+        timesSelected: 0,
+      }
+    },
+    computed: {
+      visitTimes() {
+        return this.doctor.times
+      }
+    },
+    methods: {
+      selectTime(day, time, event) {
+        console.log(event.target.classList.includes)
+        if (event.target.classList.contains('selectedTime')) {
+          this.timesSelected -= 1
+        } else {
+          this.timesSelected += 1
+        }
+        event.target.classList.toggle('selectedTime')
+      }
+    },
   }
 </script>
 
 <style lang="scss" scoped>
   .timeline {
-    height:100%;
-    background-color: #bfbfbf;
     color: #fff;
+    padding: 10px;
     div {
-      height:100%;
+      background-color: #bfbfbf;
       padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .daystamp {
       font-size: 24px;
       font-weight: 700;
     }
+    .selectedTime {
+      background-color: #2191fb;
+    }
   }
   .timeline >div:not(.daystamp):hover {
     background-color: #2191fb;
-    height:100%;
     padding:10px;
   }
-  .selectedTime {
-    background-color: #2191fb;
-  }
+
+
   .schedule {
     margin: 30px 0;
   }
@@ -130,5 +134,10 @@
   }
   .description {
     padding-left: 20px;
+  }
+  .cta {
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
   }
 </style>
