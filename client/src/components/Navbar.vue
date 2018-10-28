@@ -27,7 +27,7 @@
           <a class="nav-link" href="#">Reviews</a>
         </li> -->
         <li class="nav-item">
-          <router-link to="home" class="nav-link" href="#">Currella yourself</router-link>
+          <router-link to="home" class="nav-link" href="#">Search</router-link>
         </li>
         <!-- TODO - Dividerio reikia (|) -->
         <div v-if="!user">

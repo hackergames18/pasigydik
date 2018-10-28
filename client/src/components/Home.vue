@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PatientView v-if="!isPatient">
+    <PatientView v-if="isPatient">
 
     </PatientView>
     <DoctorView v-else>

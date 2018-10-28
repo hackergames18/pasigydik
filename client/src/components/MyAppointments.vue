@@ -17,6 +17,8 @@
           <div class="col-md-4">Duration</div>
           <div class="col-md-4">Actions</div>
         </div>
+      
+      <span v-if="user.type==='patient'">
       <AppointmentItem
       v-for="app in appointments"
       v-bind:key="app.id"
@@ -27,6 +29,20 @@
       v-bind:durationMins="app.durationMins"
       v-bind:details="app.details"
       ></AppointmentItem>
+      </span>
+
+      <span v-else>
+      <DoctorAppointmentItem
+      v-for="app in appointments"
+      v-bind:key="app.id"
+      v-bind:roomId="app.roomId"
+      v-bind:patientId="app.patientId"
+      v-bind:doctorId="app.doctorId"
+      v-bind:startTimeMins="app.startTimeMins"
+      v-bind:durationMins="app.durationMins"
+      v-bind:details="app.details"
+      ></DoctorAppointmentItem>
+      </span>
       </div>
     </div>
 
@@ -35,6 +51,8 @@
 
 <script>
 import AppointmentItem from "./AppointmentItem";
+import DoctorAppointmentItem from "./DoctorAppointmentItem";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -70,7 +88,10 @@ export default {
       ],
     };
   },
-  components: { AppointmentItem },
+  components: { AppointmentItem, DoctorAppointmentItem },
+  computed: {
+    ...mapGetters({ user: "getUser" }),
+  },
 };
 </script>
 
