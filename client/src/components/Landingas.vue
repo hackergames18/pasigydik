@@ -7,11 +7,15 @@
           <div class="col-md-6">
             <div class="align-left">
               <h1>Medical attention from the comfort of your home.</h1>
-              <router-link to="/register">
-                <button type="button" id="landing-signup" class="btn  btn-lg">
-                  Sign up
-                </button>
-              </router-link>
+              <div class="action-buttons">
+                <div>
+                  <router-link to="/register">
+                    <button type="button" id="landing-signup" class="btn  btn-lg">
+                      Sign up
+                    </button>
+                  </router-link>
+                </div>
+              </div>
             </div>
           </div>
           <div class="col-md-6 hide-image-overflow">
@@ -37,28 +41,11 @@
           </span>
         </div>
 
-        <!-- <div class="specialists1">
-          <span v-for="spec in specialists1" :key="spec.id">
-            <button class="specialist mx-2" type="button">
-              {{ spec }}
-            </button>
-          </span>
-        </div>
-        <div class="specialists2">
-          <span v-for="spec in specialists2" :key="spec.id">
-            <button class="specialist mx-2" type="button">
-              {{ spec }}
-            </button>
-          </span>
-        </div> -->
-
         <h2 class="text-center ending">
           and many more...
         </h2>
       </div>
     </section>
-
-    <div class="delete-me"></div>
   </div>
 </template>
 
@@ -86,10 +73,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.delete-me {
-  margin-bottom: 20em;
-}
-
 .hide-image-overflow {
   overflow: hidden;
 }
@@ -123,10 +106,14 @@ section#first {
     }
   }
 
+  .action-buttons {
+    margin-top: 2em;
+  }
+
   #landing-signup {
     font-size: 1.5em;
     padding: 0.2em 2em;
-    margin-top: 2em;
+    margin-top: 1em;
     border-radius: 25px;
     font-weight: 600;
     background-color: #2191fb;
@@ -136,6 +123,7 @@ section#first {
 
 section#second {
   margin-top: 5em;
+  margin-bottom: 10em;
 
   h1 {
     font-weight: 500;
