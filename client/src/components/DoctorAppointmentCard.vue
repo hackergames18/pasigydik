@@ -2,7 +2,9 @@
   <div>
     <div class="doctor-instance">
       <div class="row">
-        <div class="col-2"><img src="../assets/doctor-picture.png" alt=""></div>
+        <div class="col-2">
+          <img src="../assets/faces/2.png" alt="">
+          </div>
         <div class="col-2">
           <span class="font-weight-bold name">
             <span class="d-flex flex-fill">{{ doctor.name}} </span>
@@ -53,6 +55,7 @@
 </template>
 
 <script>
+// import myImg from '~/assets/faces/1.png'
   export default {
     props: {
       doctor: {
@@ -68,14 +71,17 @@
     computed: {
       visitTimes() {
         return this.doctor.times
+      },
+      imgSrc() {
+        // return myImg
       }
     },
     methods: {
       selectTime(day, time, event) {
-        console.log(event.target.classList.includes)
         if (event.target.classList.contains('selectedTime')) {
           this.timesSelected -= 1
         } else {
+
           this.timesSelected += 1
         }
         event.target.classList.toggle('selectedTime')

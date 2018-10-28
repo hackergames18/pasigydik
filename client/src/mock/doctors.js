@@ -12,6 +12,7 @@ export default {
     category: "dietitian",
     price: 20,
     times,
+    picture: '/assets/faces/1.png'
   },
   '2': {
     id: 2,
@@ -20,7 +21,7 @@ export default {
     experience: 'Everybody refers to him as a great doctor.',
     category: "dietitian",
     price: 25,
-    times
+    times,
   },
   '3': {
     id: 3,
