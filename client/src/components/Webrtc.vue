@@ -1,12 +1,17 @@
 <template>
   <div id="consult" class="consult">
     <!-- TODO - auto generate room ID with server -->
-    <input id="room-id-input" type="text" v-model="roomId" placeholder="Room ID">
+    <!-- <input id="room-id-input" type="text" v-model="roomId" placeholder="Room ID"> -->
 
-    <button id="start-call" @click="openAndJoinRoom">Open and join room (call)</button>
-    <button id="end-call" @click="closeConnection">Close Connection (end call)</button>
+    <button id="start-call" @click="openAndJoinRoom">
+      <img src="../assets/start_call.svg" alt="Call" class="start-call-svg">
+    </button>
+    <button id="end-call" @click="closeConnection">
+      <img src="../assets/end_call.svg" alt="End Call" class="end-call-svg">
+    </button>
     <hr>
 
+<!-- VIDEO ATEINA ČIA: -->
     <div id="live-consult">
 
     </div>
@@ -89,6 +94,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+hr {
+  margin: 1em;
+}
+// #FIXME - neveikia
 div#live-consult {
   &:first-child {
     position: relative;
@@ -99,18 +108,24 @@ div#live-consult {
   }
 }
 
-#room-id-input,
-#start-call,
-#end-call {
-  padding: 0.5em;
+// #room-id-input,
+// #start-call,
+// #end-call {
+//   padding: 0.5em;
+// }
+.start-call-svg,
+.end-call-svg {
+  width: 80px;
+  height: auto;
+  color: #00ff00 !important;
 }
 
 #room-id-input {
 }
 
-#start-call {
-}
-
+#start-call,
 #end-call {
+  border: none;
+  background: transparent;
 }
 </style>
