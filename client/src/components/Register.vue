@@ -17,6 +17,16 @@
         <label for="inputPassword">Password</label>
       </div>
 
+      <div class="form-check form-check-inline">
+        <input type="radio" value="patient" id="patientRadio" v-model="userType" class="form-control" checked>
+        <label for="patientRadio">I'm a patient</label>
+      </div>
+
+      <div class="form-check form-check-inline">
+        <input type="radio" value="doctor" id="doctorRadio" v-model="userType" class="form-control">
+        <label for="doctorRadio">I'm a doctor</label>
+      </div>
+
       <button class="btn btn-lg btn-primary btn-block">Register</button>
     </form>
   </div>
@@ -31,27 +41,31 @@ import 'firebase/firestore'
     data() {
       return {
         email: '',
-        password: ''
+        password: '',
+        userType: ''
       }
     },
     methods: {
-      handleSubmit(email, password) {
-        if (this.email === '' || this.password === '') {
+      handleSubmit() {
+        if (this.email === '' || this.password === '' || this.userType === '') {
           console.log('you cant enter empty fields')
           return
         }
-        firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
-          var errorCode = error.code;
-          console.log(errorCode)
-          var errorMessage = error.message;
-          console.log(errorMessage)
-        });
+        // TODO: Uncomment this when page is ready
+        // this.$store.dispatch('auth/register', {email: this.email, password: this.password})
+        this.$router.push({ path: '/onboarding' })
+        // firebase.auth().createUserWithEmailAndPassword(this.email, this.password).catch(function(error) {
+        //   var errorCode = error.code;
+        //   console.log(errorCode)
+        //   var errorMessage = error.message;
+        //   console.log(errorMessage)
+        // });
       }
     },
   }
 </script>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
 .form-signin {
   width: 100%;
   max-width: 420px;

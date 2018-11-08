@@ -12,7 +12,7 @@ export default {
     experience: 'He finished high-school musical',
     category: "dietitian",
     price: 20,
-    times
+    times,
   },
   '2': {
     id: 2,

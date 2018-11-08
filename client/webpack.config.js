@@ -5,8 +5,8 @@ require("babel-polyfill");
 
 
 module.exports = {
-  entry: ['babel-polyfill', './src/main.js'],
-  // entry: './src/main.js',
+  // entry: ['babel-polyfill', './src/main.js'],
+  entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
@@ -76,7 +76,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.join(__dirname, '/src')
     },
     extensions: ['*', '.js', '.vue', '.json']
   },

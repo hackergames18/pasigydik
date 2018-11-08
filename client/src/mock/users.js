@@ -1,5 +1,6 @@
 export const mockUsers = {
   "firstUseruid": {
+    id: 'firstUseruid',
     email: 'zigmas@slusnys.com',
     "name": "Zigmas",
     "surname": "Slusnys",
@@ -8,8 +9,9 @@ export const mockUsers = {
     "category": ["dietitian"],
   },
   "secondUseruid": {
+    // TODO: change the user id to an appropriate doctor id
+    id: 'secondUseruid',
     email: 'jonas@jonaitis.com',
-    "uid": "secondUseruid",
     "name": "Jonas",
     "surname": "Jonaitis",
     "type": "doctor",

@@ -1,13 +1,17 @@
 import categories from '../mock/categories'
 import * as mocks from '../mock/users'
 import mockDoctors from '../mock/doctors'
-import Vue from 'vue';
+import mockAppointments from '../mock/appointments'
+import Vue from 'vue'
 
 const state = {
   categories: {},
   doctors: {},
   users: {},
-  user: mocks.mockUsers['firstUseruid']
+  user: mocks.mockUsers['firstUseruid'],
+  // appointments: {}, TODO: uncomment later and add appointments from firestore
+  appointments: mockAppointments,
+  appointment: {}
   // user: null
 };
 
@@ -15,7 +19,13 @@ const getters = {
   getDoctors: state => Object.keys(state.doctors).map(id => state.doctors[id]),
   getCategories: state => Object.keys(state.categories).map(id => state.categories[id]),
   getUser: state => state.user,
-  getUsers: state => Object.keys(state.users).map(id => state.users[id])
+  getUsers: state => Object.keys(state.users).map(id => state.users[id]),
+  getAppointments: state => Object.keys(state.appointments).map(id => {
+    console.log(state.user.id)
+    if (state.appointments[id].patientId === state.user.id) {
+      return state.appointments[id]
+    }
+  })
 };
 
 const actions = {
@@ -42,6 +52,17 @@ const actions = {
   },
   logout({ commit }) {
     commit('setUser', null)
+  },
+  createAnAppointment({ commit }, payload) {
+    const {appointmentTime, doctor, payment} = payload
+    // Check if doctor doesn't have an appointment registered at that time already
+
+    // Check if payment has been completed successfully (or maybe do it later in the process?)
+      // If the appointment already existed with the same user id and same doctor id for that time,
+      // update the appointment as paid
+
+    // Add new appointment to the state and to the firestore database
+
   }
 };
 

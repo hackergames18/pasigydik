@@ -3,9 +3,9 @@
     <!-- TODO - auto generate room ID with server -->
     <!-- <input id="room-id-input" type="text" v-model="roomId" placeholder="Room ID"> -->
 
-    <button id="start-call" @click="openAndJoinRoom">
+    <!-- <button id="start-call" @click="openAndJoinRoom">
       <img src="../assets/start_call.svg" alt="Call" class="start-call-svg">
-    </button>
+    </button> -->
     <button id="end-call" @click="closeConnection">
       <img src="../assets/end_call.svg" alt="End Call" class="end-call-svg">
     </button>
@@ -51,10 +51,27 @@ connection.sdpConstraints.mandatory = {
 
 connection.onstream = function(event) {
   // document.body.appendChild(event.mediaElement);
+  const mediaElement = event.mediaElement
+  mediaElement.classList.add('video-element')
+  console.log()
   document.getElementById("live-consult").appendChild(event.mediaElement);
 };
 
 export default {
+  // props: {
+  //   id: {
+  //     type: String,
+  //     required: true
+  //   }
+  // },
+  created() {
+    this.openAndJoinRoom()
+  },
+  beforeDestroy() {
+    console.log('beforeDestroyed')
+    this.closeConnection()
+
+  },
   data() {
     return {
       roomId: "",
@@ -62,8 +79,8 @@ export default {
   },
   methods: {
     openAndJoinRoom() {
-      console.log("event.userid", event.userid);
-      connection.checkPresence(predefinedRoomId, function(isRoomExist, roomid) {
+      // console.log("event.userid", event.userid);
+      connection.checkPresence(this.$route.params.id, function(isRoomExist, roomid) {
         if (isRoomExist === true) {
           connection.join(roomid);
         } else {
@@ -99,14 +116,20 @@ hr {
 }
 // #FIXME - neveikia
 div#live-consult {
-  &:first-child {
-    position: relative;
-  }
-  &:nth-child(2) {
+  position: relative;
+
+  &:first-child{
+    width: 400px;
     position: absolute;
-    width: 100px;
   }
+  .video-element {
+    position: absolute;
+    width: 200px;
+  }
+
 }
+
+
 
 // #room-id-input,
 // #start-call,
@@ -118,9 +141,6 @@ div#live-consult {
   width: 80px;
   height: auto;
   color: #00ff00 !important;
-}
-
-#room-id-input {
 }
 
 #start-call,

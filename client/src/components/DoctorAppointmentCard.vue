@@ -3,8 +3,8 @@
     <div class="doctor-instance">
       <div class="row">
         <div class="col-2">
-          <!-- <img src="../assets/faces/2.png" alt=""> -->
-          <img :src="require(`../assets/faces/${doctor.id}.png`)" alt="">
+          <!-- <img :src="require(`../assets/faces/${doctor.id}.png`)" alt=""> -->
+          <img :src="`dist/${doctor.id}.png`" alt="">
           </div>
         <div class="col-2">
           <span class="font-weight-bold name">
@@ -29,28 +29,9 @@
             </div>
 
         </div>
-        <!-- <div class="col-12">
-          <div class="row timeline">
-            <div class="col align-self-center daystamp">10/27</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-          </div>
-        </div>
-        <div class="col-12">
-          <div class="row timeline">
-            <div class="col align-self-center daystamp">10/27</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-            <div class="col align-self-center">10:45</div>
-          </div>
-        </div> -->
       </div>
-      <div class="row" v-if="timesSelected > 0"><div class="col"><button @click="goToMyAppointments" class="btn-primary cta float-right">CHECKOUT</button></div></div>
+      <div class="row" v-if="timesSelected > 0"><div class="col"><img src="../assets/payments.png" class="payments" alt=""></div></div>
+      <div class="row" v-if="timesSelected > 0"><div class="col"><button @click="proceedToPayment" class="btn-primary cta float-right">PAY</button></div></div>
     </div>
   </div>
 </template>
@@ -89,12 +70,19 @@
       },
       goToMyAppointments() {
         this.$router.push('/appointments')
+      },
+      proceedToPayment() {
+
       }
     },
   }
 </script>
 
 <style lang="scss" scoped>
+  .payments {
+    height: 100%;
+    width: 100%;
+  }
   .timeline {
     color: #fff;
     padding: 10px;
@@ -144,10 +132,5 @@
   }
   .description {
     padding-left: 20px;
-  }
-  .cta {
-    margin: 10px;
-    padding: 10px;
-    font-weight: bold;
   }
 </style>

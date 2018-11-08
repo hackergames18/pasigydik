@@ -2,12 +2,12 @@
   <div class="my-appointments">
     <h1>Appointment overview</h1>
     <div class="scheduled-elapsed-selection">
-      <button id="scheduled" class="current" type="">
+      <a id="scheduled" class="current" type="">
         Scheduled
-      </button>
-      <button id="elapsed">
+      </a>
+      <a id="elapsed">
         Elapsed
-      </button>
+      </a>
     </div>
 
     <div class="sorting">
@@ -17,8 +17,8 @@
           <div class="col-md-4">Duration</div>
           <div class="col-md-4">Actions</div>
         </div>
-      
-      <span v-if="user.type==='patient'">
+
+      <!-- <span v-if="user.type==='patient'">
       <AppointmentItem
       v-for="app in appointments"
       v-bind:key="app.id"
@@ -29,9 +29,20 @@
       v-bind:durationMins="app.durationMins"
       v-bind:details="app.details"
       ></AppointmentItem>
-      </span>
+      </span> -->
 
-      <span v-else>
+      <AppointmentItem
+      v-for="item in coreAppointments"
+      :key="item.id"
+      :id="item.id"
+      :doctorId="item.doctorId"
+      :patientId="item.patientId"
+      :begins="item.startsAt"
+      :ends="item.endsAt"
+      :details="item.details"
+      />
+
+      <!-- <span v-else>
       <DoctorAppointmentItem
       v-for="app in appointments"
       v-bind:key="app.id"
@@ -42,7 +53,7 @@
       v-bind:durationMins="app.durationMins"
       v-bind:details="app.details"
       ></DoctorAppointmentItem>
-      </span>
+      </span> -->
       </div>
     </div>
 
@@ -90,7 +101,7 @@ export default {
   },
   components: { AppointmentItem, DoctorAppointmentItem },
   computed: {
-    ...mapGetters({ user: "getUser" }),
+    ...mapGetters({ user: "getUser", coreAppointments: 'getAppointments'}),
   },
 };
 </script>
@@ -100,12 +111,13 @@ export default {
   margin-top: 2em;
 
   .scheduled-elapsed-selection {
-    button {
+    a {
       background-color: transparent;
       border: none;
       font-size: 1.4em;
       font-weight: 100;
       padding: 0 1em;
+      cursor: pointer;
     }
     .current {
       border-bottom: 5px solid #2191fb;
@@ -116,9 +128,6 @@ export default {
     .indicators {
       color: #353b3c;
       font-size: 1.5em;
-    }
-    .container {
-      // width: 60%;
     }
   }
 }

@@ -108,4 +108,11 @@ footer {
 footer p {
   margin-bottom: 0.25rem;
 }
+.cta {
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #2191fb;
+    color: #ffffff !important;
+  }
 </style>

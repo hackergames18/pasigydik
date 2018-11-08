@@ -32,16 +32,16 @@
         <!-- TODO - Dividerio reikia (|) -->
         <div v-if="!user">
         <li class="nav-item">
-            <router-link class="nav-link" to="login">Login</router-link>
+            <router-link class="nav-link" to="/login">Login</router-link>
             </li>
         <li class="nav-item">
-            <router-link class="nav-link signup-link" to="register">Sign up</router-link>
+            <router-link class="nav-link signup-link" to="/register">Sign up</router-link>
           </li>
     </div>
     <div v-else>
       <li class="nav-item">
 
-            <router-link to="appointments" class="nav-link" href="#">My appointments</router-link>
+            <router-link to="/appointments" class="nav-link" href="#">My appointments</router-link>
           </li>
       <li class="nav-item">
             <a class="nav-link" @click="logout" href="#">Logout</a>
